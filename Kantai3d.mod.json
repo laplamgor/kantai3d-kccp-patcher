@@ -2,5 +2,8 @@
     "name": "Kantai 3D Patcher",
     "version": "1.0.0",
     "authors": ["laplamgor"],
-    "requireScripts": true
+    "requireScripts": true,
+    "url": "https://github.com/laplamgor/kantai3d-kccp-patcher",
+    "updateUrl": "https://raw.githubusercontent.com/laplamgor/kantai3d-kccp-patcher/master/Kantai3d.mod.json",
+    "downloadUrl": "https://github.com/laplamgor/kantai3d-kccp-patcher/archive/master.zip"
 }

@@ -1,5 +1,6 @@
 {
-    "name": "Example",
-    "version": "0.0.1",
-    "authors": ["YourName"]
+    "name": "Kantai 3D Patcher",
+    "version": "1.0.0",
+    "authors": ["laplamgor"],
+    "requireScripts": true
 }

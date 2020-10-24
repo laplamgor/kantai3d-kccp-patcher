@@ -141,7 +141,6 @@ void main(void)
         mat2(vec2((0.5 - focus) * (offset) - (offset) / 2.0) * scale2,
              vec2((0.5 - focus) * (offset) + (offset) / 2.0) * scale2);
 
-
     vec2 pos = (vTextureCoord);
     mat2 vector = baseVector;
 
@@ -155,12 +154,10 @@ void main(void)
     float dpos;
     float dposLast;
 
-
     for (float i = 0.0; i < MAXSTEPS; ++i)
     {
         vec2 vpos = pos + vector[1] - i * vstep;
         dpos = 1.0 - i * dstep;
-
         float depth = texture2D(displacementMap, mapCoordDepth(vpos)).r;
 
 
@@ -169,25 +166,17 @@ void main(void)
             depth = 0.0;
         }
 
-
         depth = clamp(depth, dmin, dmax);
-
-#define CORRECT 100
-#if CORRECT == 10
-#define CORRECTION_MATH +((vec2((depth - dpos) / (dstep)) * vstep))
-#else
-#define CORRECTION_MATH
-#endif
 
         if (dpos > depth)
         {
-            posSumLast = (vpos CORRECTION_MATH);
+            posSumLast = vpos;
             dposLast = dpos;
         }
         else
         {
-            posSum = (vpos CORRECTION_MATH);
-            weigth = (depth - dposLast) / (dstep);
+            posSum = vpos;
+            weigth = (depth - dposLast) / dstep;
             break;
         }
     };

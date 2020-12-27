@@ -14,3 +14,20 @@ This is an extension patcher mod for [KanColle Cache Proxy](https://github.com/T
 * Open the KCCP window, and check the box "Enable assets modifier" then click "Save"
 * Under the section "Assets modifier", click "Add a patcher" and select the "Kantai3d.mod.json" from the unzipped folder
 
+
+# Requirement and Compatibility
+This extension is tested to be compatible with
+* Google Chrome 87+
+* With or without KC3 Kai
+* [Poi game browser](https://github.com/poooi/poi)
+* [KanColle Enlish Patch](https://github.com/InochiPM/KanColle-English-Patch-KCCP)
+
+⚠️This extension CANNOT be used together with [Kantai 3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
+Please only choose one of them to patch your game client.
+
+⚠️This extension does not work with https://ooi.poi proxy currently. It is planned to add support in the future.
+
+⚠️This extension may interfere with other local file proxy tools such as KCCP.
+
+If you encounter any wired behaviour please immediately stop using the extension and report the issue to me.
+

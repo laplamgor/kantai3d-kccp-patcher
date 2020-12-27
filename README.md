@@ -22,12 +22,12 @@ This extension is tested to be compatible with
 * [Poi game browser](https://github.com/poooi/poi)
 * [KanColle Enlish Patch](https://github.com/InochiPM/KanColle-English-Patch-KCCP)
 
-⚠️This extension CANNOT be used together with [Kantai 3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
+⚠️This patcher CANNOT be used together with [Kantai 3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
 Please only choose one of them to patch your game client.
 
-⚠️This extension does not work with https://ooi.poi proxy currently. It is planned to add support in the future.
+⚠️This patcher does not work with https://ooi.poi proxy currently. It will require changes on KCCP's side.
 
-⚠️This extension may interfere with other local file proxy tools such as KCCP.
+⚠️This patcher may interfere with other KCCP patchers other than the tested KanColle Enlish Patch.
 
 If you encounter any wired behaviour please immediately stop using the extension and report the issue to me.
 

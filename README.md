@@ -25,7 +25,7 @@ This extension is tested to be compatible with
 ⚠️This patcher CANNOT be used together with [Kantai 3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
 Please only choose one of them to patch your game client.
 
-⚠️This patcher does not work with https://ooi.poi proxy currently. It will require changes on KCCP's side.
+⚠️This patcher does not work with https://ooi.moe proxy currently. It will require changes on KCCP's side.
 
 ⚠️This patcher may interfere with other KCCP patchers other than the tested KanColle Enlish Patch.
 

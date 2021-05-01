@@ -27,7 +27,7 @@ Please only choose one of them to patch your game client.
 
 ⚠️This patcher does not work with https://ooi.moe proxy currently. It will require changes on KCCP's side.
 
-⚠️This patcher may interfere with other KCCP patchers other than the tested KanColle Enlish Patch.
+⚠️This patcher may interfere with other KCCP patchers other than the tested KanColle English Patch.
 
 If you encounter any wired behaviour please immediately stop using the extension and report the issue to me.
 

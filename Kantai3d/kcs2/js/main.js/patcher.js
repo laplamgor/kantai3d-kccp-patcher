@@ -35,14 +35,12 @@ window.displacementFilter = PIXI.DepthPerspectiveFilter;
 
 window.displacementFilter.uniforms.textureWidth = this._chara.texture.width;
 window.displacementFilter.uniforms.textureHeight = this._chara.texture.height;
-window.displacementFilter.padding = 0;
-
 
 window.displacementSprite.visible = false;
 
 window.displacementFilter.padding = 150;
 
-window.currenctChara = this._chara;
+window.currentChara = this._chara;
 
 if (window.displacementSprite.width != 1) {
     // The depth map is already loaded
@@ -50,21 +48,21 @@ if (window.displacementSprite.width != 1) {
     window.displacementFilter.uniforms.scale = 1.0;
     window.displacementFilter.uniforms.focus = 0.5;
     window.displacementFilter.uniforms.offset = [0.0, 0.0];
-    window.currenctChara.filters = [window.displacementFilter];
-    window.currenctChara.addChild(window.displacementSprite);
+    window.currentChara.filters = [window.displacementFilter];
+    window.currentChara.addChild(window.displacementSprite);
 } else {
     // The depth map is not loaded yet, and may not exist in server at all
     // Disable the filter first
     this._chara.filters = [];
-    window.currenctChara.filters = [];
+    window.currentChara.filters = [];
     window.displacementSprite.texture.baseTexture.on('loaded', function(){
         // Re-enable the filter when resource loaded
         window.displacementFilter.uniforms.displacementMap = window.displacementSprite.texture;
         window.displacementFilter.uniforms.scale = 1.0;
         window.displacementFilter.uniforms.focus = 0.5;
         window.displacementFilter.uniforms.offset = [0.0, 0.0];
-        window.currenctChara.filters = [window.displacementFilter];
-        window.currenctChara.addChild(window.displacementSprite);
+        window.currentChara.filters = [window.displacementFilter];
+        window.currentChara.addChild(window.displacementSprite);
     });
 }
 `);
@@ -105,33 +103,5 @@ PIXI.DepthPerspectiveFilter.apply = function(filterManager, input, output)
   filterManager.applyFilter(this, input, output);
 }
 
-
-// var isloaded = false;
-//   var alpha    = 0;
-//   var beta     = 0;
-//   var gamma    = 0;
-
-
-// window.addEventListener("deviceorientation", handleOrientation, true);
-
-// function handleOrientation(e) {
-//   if (!isloaded) {
-//     alpha = e.alpha;
-//     beta = e.beta;
-//     gamma = e.gamma;
-//     isloaded = true;
-//    }
-//   console.log("ha" + e.alpha);
-
-//   if (window.displacementFilter && window.displacementFilter.uniforms && window.displacementFilter.uniforms.offset) {
-//     window.displacementFilter.uniforms.offset =  [(window.displacementFilter.uniforms.offset[0] + (e.alpha - alpha)/180.0) * 0.5, 
-//     (window.displacementFilter.uniforms.offset[1] + (e.beta - beta)/180.0) * 0.5];
-
-//     console.log((window.displacementFilter.uniforms.offset[0] + (e.alpha - alpha)/180.0) * 0.5);
-//   }
-//   alpha = e.alpha;
-//   beta = e.beta;
-//   gamma = e.gamma;
-// }
 `;
 }

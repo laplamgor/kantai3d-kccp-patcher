@@ -1,8 +1,6 @@
 const { readFileSync } = require("fs")
 const { join } = require("path")
 
-
-let vert = readFileSync(join(__dirname, './kantai3d.vert'));
 let frag = readFileSync(join(__dirname, './kantai3d.frag'));
 
 
@@ -90,7 +88,7 @@ window.displacementFilter.uniforms.offset = [flip * mousex *1.3
     return contents + `;
 
 'use strict';
-PIXI.DepthPerspectiveFilter = new PIXI.Filter(\``+ vert + `\`, \`` + frag + `\`);
+PIXI.DepthPerspectiveFilter = new PIXI.Filter(null, \`` + frag + `\`);
 
 PIXI.DepthPerspectiveFilter.apply = function(filterManager, input, output)
 {

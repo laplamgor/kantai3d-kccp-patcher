@@ -72,18 +72,53 @@ if (window.displacementSprite.width != 1) {
 
     contents = contents.replace(/(this\['y'\]=this\[.{0,99}\('.{0,99}'\)]-1.5\*.{0,99}\*1.8;)/g, 
         `$1
-var mousex = (window.pixiApp.renderer.plugins.interaction.mouse.global.x/1200.0-0.5);
-var mousey = (window.pixiApp.renderer.plugins.interaction.mouse.global.y/720.0-0.5);
+var mousex2 = (window.pixiApp.renderer.plugins.interaction.mouse.global.x);
+var mousey2 = (window.pixiApp.renderer.plugins.interaction.mouse.global.y);
+
+if (!mouseoutside) {
+    if (!window.mousex1) window.mousex1 = mousex2;
+    if (!window.mousey1) window.mousey1 = mousey2;
+
+    if (!window.mousex) window.mousex = 0;
+    if (!window.mousey) window.mousey = 0;
+    if (!window.mouset) window.mouset = Date.now();
+
+    window.mousex += (mousex2 - window.mousex1) * (Date.now() - window.mouset);
+    window.mousey += (mousey2 - window.mousey1) * (Date.now() - window.mouset);
+
+    window.mousex1 = mousex2;
+    window.mousey1 = mousey2;
+}
 
 window.displacementFilter.uniforms.textureScale = this.scale.x;
 
 var flip = (this.parent._chara.transform.position.x - window.portOffset) / (window.portOffsetR) - 0.5;
-window.displacementFilter.uniforms.offset = [flip * mousex *1.3
-,0.02 * window.charasin - 0.01 + mousey * 0.6];
+window.displacementFilter.uniforms.offset = [flip * (window.mousex / 1200.0 * 0.05) *1.3
+,0.02 * window.charasin - 0.01 + (window.mousey / 720.0 * 0.05) * 0.6];
+
+
+window.mousex = mousex * Math.pow(0.9, (Date.now() - mouset) / 30.0);
+window.mousey = mousey * Math.pow(0.9, (Date.now() - mouset) / 30.0);
+window.mouset = Date.now();
 
 `);
 
     return contents + `;
+
+
+
+document.addEventListener('mouseleave', e => {
+    window.mouseoutside = true;
+    window.mousex1 = null;
+    window.mousey1 = null;
+});
+
+document.addEventListener('mouseenter', e => {
+    window.mouseoutside = false;
+});
+
+
+
 
 'use strict';
 PIXI.DepthPerspectiveFilter = new PIXI.Filter(null, \`` + frag + `\`);

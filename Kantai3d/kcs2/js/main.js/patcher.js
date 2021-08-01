@@ -30,7 +30,7 @@ module.exports = (file, contents) => {
 window.portOffset = -window.charal + window.charah.x;//-l+h.x
 window.portOffsetR = window.charar;//r
 
-window.displacementSprite = PIXI.Sprite.fromImage(window.displacementPath.replace(/resources\\/ship\\/full\\/([0-9]*)_([0-9_a-z]*).png(\\?version=)?([0-9]*)/g, \"https://cdn.jsdelivr.net/gh/laplamgor/kantai3d-depth-maps/source/$$1/$$1_$$2_v$$4.png\"));
+window.displacementSprite = PIXI.Sprite.fromImage(window.displacementPath.replace(/resources\\/ship\\/full\\/([0-9]*)_([0-9_a-z]*).png(\\?version=)?([0-9]*)/g, \"https://cdn.jsdelivr.net/gh/laplamgor/kantai3d-depth-maps@master/source/$$1/$$1_$$2_v$$4.png\"));
 window.displacementFilter = PIXI.DepthPerspectiveFilter;
 
 window.displacementFilter.uniforms.textureWidth = this._chara.texture.width;

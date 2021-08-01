@@ -30,7 +30,7 @@ module.exports = (file, contents) => {
 window.portOffset = -window.charal + window.charah.x;//-l+h.x
 window.portOffsetR = window.charar;//r
 
-window.displacementSprite = PIXI.Sprite.fromImage('https://kantai3d.com/'+ window.displacementPath );
+window.displacementSprite = PIXI.Sprite.fromImage(window.displacementPath.replace(/resources\\/ship\\/full\\/([0-9]*)_([0-9_a-z]*).png(\\?version=)?([0-9]*)/g, \"https://cdn.jsdelivr.net/gh/laplamgor/kantai3d-depth-maps/source/$$1/$$1_$$2_v$$4.png\"));
 window.displacementFilter = PIXI.DepthPerspectiveFilter;
 
 window.displacementFilter.uniforms.textureWidth = this._chara.texture.width;
@@ -97,8 +97,8 @@ window.displacementFilter.uniforms.offset = [flip * (window.mousex / 1200.0 * 0.
 ,0.02 * window.charasin - 0.01 + (window.mousey / 720.0 * 0.05) * 0.6];
 
 
-window.mousex = mousex * Math.pow(0.9, (Date.now() - mouset) / 30.0);
-window.mousey = mousey * Math.pow(0.9, (Date.now() - mouset) / 30.0);
+window.mousex = window.mousex * Math.pow(0.9, (Date.now() - window.mouset) / 30.0);
+window.mousey = window.mousey * Math.pow(0.9, (Date.now() - window.mouset) / 30.0);
 window.mouset = Date.now();
 
 `);

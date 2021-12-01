@@ -43,6 +43,7 @@ window.displacementFilter.padding = 150;
 window.currentChara = this._chara;
 
 if (window.displacementSprite.width != 1) {
+    console.log('The depth map for this secretary is already loaded.');
     // The depth map is already loaded
     window.displacementFilter.uniforms.displacementMap = window.displacementSprite.texture;
     window.displacementFilter.uniforms.scale = 1.0;
@@ -61,6 +62,8 @@ if (window.displacementSprite.width != 1) {
     this._chara.filters = [];
     window.currentChara.filters = [];
     window.displacementSprite.texture.baseTexture.on('loaded', function(){
+
+        console.log('The depth map for this secretary is now loaded.');
         // Re-enable the filter when resource loaded
         window.displacementFilter.uniforms.displacementMap = window.displacementSprite.texture;
         window.displacementFilter.uniforms.scale = 1.0;
@@ -74,6 +77,10 @@ if (window.displacementSprite.width != 1) {
         prepareJiggle(window.currentChara.texture, window.displacementSprite.texture);
         window.displacementFilter.uniforms.displacementMap = window.jiggledDepthMapRT.texture;
     });
+
+    window.displacementSprite.texture.baseTexture.on('error', function(){
+        console.log('The depth map for this secretary is not available. Please visit https://github.com/laplamgor/kantai3d to check the supported CG list and consider to contribute your own depth map.');
+    })
 }
 
 
@@ -88,8 +95,8 @@ function prepareJiggle(baseMap, depthMap) {
     window.jiggleStaticFlags = [];
     window.jiggleMovement = [];
 
-    window.damping = [];//1.0 / 8; // 1 2 4 8 16 
-    window.springiness = [];//1.0 / 16.0; // 0 2 4 8 16 32 回彈力
+    window.damping = [];
+    window.springiness = [];
     
 
     var depthImg = depthMap.baseTexture.source;
@@ -130,8 +137,8 @@ function prepareJiggle(baseMap, depthMap) {
             var r = dmData[(Math.floor(y * window.gridH) * baseMap.width + Math.floor(x * window.gridW)) * 4 + 0];
             var b = dmData[(Math.floor(y * window.gridH) * baseMap.width + Math.floor(x * window.gridW)) * 4 + 2];
 
-            window.damping.push(1.0 / (b / 255.0 * 16.0 + 1));//1.0 / 8; // 1 2 4 8 16 
-            window.springiness.push(1.0 / ( b / 255.0 * 32.0 + 1));//1.0 / 16.0; // 0 2 4 8 16 32 回彈力
+            window.damping.push(1.0 / (b / 255.0 * 16.0 + 1));
+            window.springiness.push(1.0 / ( b / 255.0 * 32.0 + 1));
         
 
             window.jiggleStaticFlags.push(b == 0);

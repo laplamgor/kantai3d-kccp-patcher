@@ -1,7 +1,7 @@
 const { readFileSync } = require("fs")
 const { join } = require("path")
 
-let frag = readFileSync(join(__dirname, './kantai3d.frag'));
+let frag = readFileSync(join(__dirname, './ignore-kantai3d.frag'));
 
 
 

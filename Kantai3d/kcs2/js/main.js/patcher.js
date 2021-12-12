@@ -33,12 +33,14 @@ window.portOffsetR = window.charar;//r
 window.displacementSprite = PIXI.Sprite.fromImage(window.displacementPath.replace(/resources\\/ship\\/full[_dmg]*\\/([0-9]*)_([0-9_a-z]*).png(\\?version=)?([0-9]*)/g, \"https://cdn.jsdelivr.net/gh/laplamgor/kantai3d-depth-maps@master/source/$$1/$$1_$$2_v$$4.png\"));
 window.displacementFilter = PIXI.DepthPerspectiveFilter;
 
-window.displacementFilter.uniforms.textureWidth = this._chara.texture.width;
-window.displacementFilter.uniforms.textureHeight = this._chara.texture.height;
+window.displacementFilter.uniforms.textureSize = {
+  0: this._chara.texture.width,
+  1: this._chara.texture.height
+};
 
 window.displacementSprite.visible = false;
 
-window.displacementFilter.padding = 150;
+window.displacementFilter.padding = 0;
 
 window.currentChara = this._chara;
 
@@ -190,14 +192,22 @@ PIXI.DepthPerspectiveFilter = new PIXI.Filter(null, \`` + frag + `\`);
 
 PIXI.DepthPerspectiveFilter.apply = function(filterManager, input, output)
 {
-  this.uniforms.dimensions = {};
-  this.uniforms.dimensions[0] = input.sourceFrame.width;
-  this.uniforms.dimensions[1] = input.sourceFrame.height;
+  this.uniforms.dimensions = {
+    0: input.sourceFrame.width,
+    1: input.sourceFrame.height
+  };
 
   this.uniforms.padding = this.padding;
   
-  this.uniforms.frameWidth = input.size.width;
-  this.uniforms.frameHeight = input.size.height;
+  this.uniforms.frameSize = { 
+    0: input.size.width, 
+    1: input.size.height
+  };
+
+  this.uniforms.filterAreaOffset = { 
+    0: Math.min(window.currentChara.worldTransform.tx, 0.0), 
+    1: Math.min(window.currentChara.worldTransform.ty, 0.0)
+  };
 
 
   //////// mouse

@@ -1,18 +1,14 @@
 precision mediump float;
 uniform vec2 offset;
 
-
-
-
 uniform sampler2D uSampler;
 uniform sampler2D displacementMap;
 
 uniform float textureScale;
 
-uniform float textureWidth;
-uniform float textureHeight;
-uniform float frameWidth;
-uniform float frameHeight;
+uniform vec2 textureSize;
+uniform vec2 frameSize;
+uniform vec2 filterAreaOffset;
 
 uniform float padding;
 uniform vec4 filterArea;
@@ -29,14 +25,7 @@ uniform float focus;
 
 vec2 mapCoordDepth(vec2 coord)
 {
-    return vec2((coord[0] * frameWidth - padding) / textureWidth / textureScale,
-                (coord[1] * frameHeight - padding) / textureHeight / textureScale);
-}
-
-vec2 mapCoord2(vec2 coord)
-{
-    return vec2(coord[0] * frameWidth / textureWidth / textureScale,
-                coord[1] * frameHeight / textureHeight / textureScale);
+    return (coord * (frameSize - padding) - filterAreaOffset) / textureSize / textureScale;
 }
 
 const float compression = 1.0;
@@ -45,89 +34,6 @@ const float dmax = 1.0;
 
 #define MAXSTEPS 600.0
 float steps = max(MAXSTEPS *length(offset), 30.0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

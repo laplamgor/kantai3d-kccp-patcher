@@ -40,7 +40,7 @@ window.displacementFilter.uniforms.textureSize = {
 
 window.displacementSprite.visible = false;
 
-window.displacementFilter.padding = 0;
+window.displacementFilter.padding = 150;
 
 window.currentChara = this._chara;
 

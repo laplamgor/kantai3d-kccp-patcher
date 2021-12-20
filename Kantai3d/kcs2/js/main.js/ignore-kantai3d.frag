@@ -25,7 +25,7 @@ uniform float focus;
 
 vec2 mapCoordDepth(vec2 coord)
 {
-    return (coord * (frameSize - padding) - filterAreaOffset) / textureSize / textureScale;
+    return (coord * (frameSize) - filterAreaOffset - padding) / textureSize / textureScale;
 }
 
 const float compression = 1.0;

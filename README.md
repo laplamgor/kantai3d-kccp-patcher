@@ -1,7 +1,8 @@
 [⬅️ back to top repo](https://github.com/laplamgor/kantai3d)
 
-# Kantai 3D KCCP Patcher
-This is an extension patcher mod for [KanColle Cache Proxy](https://github.com/Tibowl/KCCacheProxy) to enable Kantai 3D
+# Kantai3D KCCP Patcher
+This is an extension patcher mod for [KanColle Cache Proxy](https://github.com/Tibowl/KCCacheProxy) to enable Kantai3D
+![image](https://user-images.githubusercontent.com/11514317/146808319-2bb24a30-ab30-4fd9-b170-1c701e82d385.png)
 
 ![aN9y59](https://user-images.githubusercontent.com/11514317/97005328-de98ac00-1570-11eb-8ce1-35461f92fbe2.gif)
 
@@ -22,7 +23,7 @@ This extension is tested to be compatible with
 * [Poi game browser](https://github.com/poooi/poi)
 * [KanColle Enlish Patch](https://github.com/InochiPM/KanColle-English-Patch-KCCP)
 
-⚠️This patcher CANNOT be used together with [Kantai 3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
+⚠️This patcher CANNOT be used together with [Kantai3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
 Please only choose one of them to patch your game client.
 
 ⚠️This patcher does not work with https://ooi.moe proxy currently. It will require changes on KCCP's side.

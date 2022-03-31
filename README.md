@@ -21,7 +21,7 @@ This extension is tested to be compatible with
 * Google Chrome 87+
 * With or without KC3 Kai
 * [Poi game browser](https://github.com/poooi/poi)
-* [KanColle Enlish Patch](https://github.com/InochiPM/KanColle-English-Patch-KCCP)
+* [KanColle English Patch](https://github.com/InochiPM/KanColle-English-Patch-KCCP)
 
 ⚠️This patcher CANNOT be used together with [Kantai3D Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension). 
 Please only choose one of them to patch your game client.
@@ -30,5 +30,5 @@ Please only choose one of them to patch your game client.
 
 ⚠️This patcher may interfere with other KCCP patchers other than the tested KanColle English Patch.
 
-If you encounter any wired behaviour please immediately stop using the extension and report the issue to me.
+If you encounter any wired behavior please immediately stop using the extension and report the issue to me.
 

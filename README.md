@@ -1,6 +1,9 @@
 [⬅️ back to top repo](https://github.com/laplamgor/kantai3d)
 
-# Kantai3D KCCP Patcher
+This patcher is discontinued and not working anymore. Please switch to [Chrome Extension](https://github.com/laplamgor/kantai3d-chrome-extension) or [Poi Viewer Plugin](https://github.com/laplamgor/kantai3d-poi-plugin)
+
+
+# Kantai3D KCCP Patcher (Discontinued)
 This is an extension patcher mod for [KanColle Cache Proxy](https://github.com/Tibowl/KCCacheProxy) to enable Kantai3D
 ![image](https://user-images.githubusercontent.com/11514317/146808319-2bb24a30-ab30-4fd9-b170-1c701e82d385.png)
 
